@@ -158,6 +158,7 @@ CFG_BOOL_KEYS = {
     "save_frames",
     "show_labels",
     "show_conf",
+    "show_masks",
     "visualize",
     "augment",
     "agnostic_nms",
@@ -291,6 +292,9 @@ def _handle_deprecation(custom):
         if key == "hide_conf":
             deprecation_warn(key, "show_conf")
             custom["show_conf"] = custom.pop("hide_conf") == "False"
+        if key == "hide_masks":
+            deprecation_warn(key, "show_masks")
+            custom["show_masks"] = custom.pop("hide_masks") == "False"
         if key == "line_thickness":
             deprecation_warn(key, "line_width")
             custom["line_width"] = custom.pop("line_thickness")
